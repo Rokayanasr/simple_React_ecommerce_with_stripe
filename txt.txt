@@ -1,0 +1,5 @@
+slices -----> folders that contains action and reducers for a particular state of settings_applications
+reducers is action of  the slice
+
+Reducer: Modifies the main content of your recipe book (state), like updating a recipe.
+Extra Reducers: These are like additional notes or pages attached to your recipe book, focusing on specific details or tasks without changing the main recipes handled by the reducer.
