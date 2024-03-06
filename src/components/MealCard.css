@@ -1,0 +1,165 @@
+/* @import url('../assets/header.jpg'); */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= Navbar =================*/
+@media only screen and (max-width: 768px) {
+  /* CSS rules for mobile devices */
+  .btns{
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* CSS rules for iPad */
+}
+
+
+/* ================= meals  header =================*/
+
+.meal-header {
+  background-image: url("../assets/header1.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.header-flex{
+  display: flex;
+}
+.mealImg {
+  max-height: 68vh;
+  height: auto;
+}  .resp-text{
+  justify-content: start;
+  align-items: start;
+}
+.salads{
+  display: flex;
+  flex-direction: column;
+}
+.mealImgsm {
+  max-height: 18vh;
+  height: auto;
+}
+.addToCart {
+  color: #624dcf;
+}
+.addToCart:hover {
+  color: #764abc;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns in each row */
+  gap: 1rem; /* Adjust gap between items */
+}
+.hover-meal{
+  visibility: hidden;
+}
+.cardImg:hover{
+  .hover-meal{
+    visibility: visible;
+  }}
+/* .cardy{
+  height: 74vh;
+} */
+@media (max-width: 691px) {
+  .mealImgsm {
+    width: auto;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  /* CSS rules for mobile devices */
+  .meal-header {
+    background-image: url("../assets/header-responsive.png");
+    height: auto;
+
+  }
+  .salads{
+    display: none;
+    /* flex-direction: row; */
+  }
+  .header-flex{
+    flex-direction: column ;
+  }
+  .resp-text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.rotate-center {
+  animation: rotate-center 9s linear infinite both;
+
+
+  /*----------------------------------------------*GeneratedbyAnimistaon2024-2-287:;
+  58:;
+  11*LicensedunderFreeBSDLicense.*Seehttp:;
+  //animista.net/licenseformoreinfo.*w:;
+  http:;
+  //animista.net,t:;
+  @cssanimista*----------------------------------------------*//***----------------------------------------*animationrotate-center*----------------------------------------*/-webkit-animation: rotate-center 8s linear infinite both;
+  -webkit-animation: rotate-center 9s linear infinite both;
+}
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*  ============== explore meals =============== */
+
+.category {
+  height: 8rem;
+  width: 8rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.categContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.catIcon {
+  color: #764abc;
+}
+.category:hover {
+  transform: scale(1.2);
+
+  .catIcon,p
+{
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body{
+    overflow-x:none;
+  }
+.category{
+  height: 6rem;
+  width: 6rem;
+}
+.catIcon {
+  height: 50%;
+}
+}
+
+.shadow-pop-tl :hover{ animation:shadow-pop-tl .3s cubic-bezier(.47,0.000,.745,.715) both; -webkit-animation:shadow-pop-tl .3s cubic-bezier(.47,0.000,.745,.715) both; }
+
+ @keyframes shadow-pop-tl{0%{box-shadow:0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e;transform:translateX(0) translateY(0)}100%{box-shadow:-1px -1px #3e3e3e,-2px -2px #3e3e3e,-3px -3px #3e3e3e,-4px -4px #3e3e3e,-5px -5px #3e3e3e,-6px -6px #3e3e3e,-7px -7px #3e3e3e,-8px -8px #3e3e3e;transform:translateX(8px) translateY(8px)}}
