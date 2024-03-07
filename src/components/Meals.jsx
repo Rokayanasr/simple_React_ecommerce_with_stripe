@@ -1,3 +1,4 @@
+import { useState } from 'react'; // Import useState
 import { useSelector } from "react-redux";
 import { useGetAllMealsQuery } from "../redux/slices/mealsApi";
 import Loading from "./Loading";
@@ -7,17 +8,16 @@ import "./MealCard.css"
 import Navbar from "./Navbar";
 import mealImg from '../assets/meal.png'
 import mealImg2 from '../assets/meal2.png'
-import MealCarousel from "./MealCarousel";
-
-// import {
-//   Carousel,
-//   initTE
-// } from "tw-elements";
 
 function Meals() {
+  const [selectedCategory, setSelectedCategory] = useState(null); // Initialize selectedCategory state
+
   const { data, error, isLoading } = useGetAllMealsQuery();
   const { items: meals, status } = useSelector((state) => state.meals);
   
+  const handleCategoryChange = (cat) => {
+    setSelectedCategory(cat); // Update selected category
+  }
   return (
 
     <>
@@ -57,19 +57,23 @@ function Meals() {
         </div>
       </header>
 
-      {/* ============================= filter ==============================*/}
+       {/* ============================= filter ==============================*/}
       <section className="explore-meals">
         <h3 className="flex justify-center font-bold py-10 align-middle">EXPLORE OUR MEALS</h3>
-        <div onClick={() => handleCategoryChange('vegan')} className=" categContainer gap-10 flex-row flex">
-          <div className="category cursor-pointer hover:bg-violet-500 border-2 rounded-box bg-violet-100 border-violet-300 flex flex-col items-center">
+        <div className="categContainer gap-10 flex-row flex">
+        <div onClick={() => handleCategoryChange(null)} className={`category cursor-pointer hover:bg-violet-500 border-2 rounded-box ${selectedCategory === null ? 'bg-violet-100 border-violet-300' : 'bg-transparent border-transparent'} flex flex-col items-center`}>
+            <i className="fa-solid fa-list fa-2xl catIcon"></i>
+            <p className="font-semibold lg:text-sm text-gray-600 text-center">ALL</p>
+          </div>
+          <div onClick={() => handleCategoryChange('vegan')} className={`category cursor-pointer hover:bg-violet-500 border-2 rounded-box ${selectedCategory === 'vegan' ? 'bg-violet-100 border-violet-300' : 'bg-transparent border-transparent'} flex flex-col items-center`}>
             <i className="fa-solid fa-carrot fa-2xl catIcon"></i>
             <p className="font-semibold lg:text-sm text-gray-600 text-center">VEGAN MEALS</p>
           </div>
-          <div onClick={() => handleCategoryChange('vegetarian')} className="category cursor-pointer hover:bg-violet-500 border-2 rounded-box bg-violet-100 border-violet-300 flex flex-col items-center">
+          <div onClick={() => handleCategoryChange('vegetarian')} className={`category cursor-pointer hover:bg-violet-500 border-2 rounded-box ${selectedCategory === 'vegetarian' ? 'bg-violet-100 border-violet-300' : 'bg-transparent border-transparent'} flex flex-col items-center`}>
             <i className="fa-solid fa-leaf fa-2xl catIcon"></i>
-            <p className="font-semibold text-gray-600 text-center">VEGETERIAN MEALS</p>
+            <p className="font-semibold text-gray-600 text-center">VEGETARIAN MEALS</p>
           </div>
-          <div onClick={() => handleCategoryChange('non-vegetarian')} className="category cursor-pointer hover:bg-violet-500 border-2 rounded-box bg-violet-100 border-violet-300 flex flex-col items-center">
+          <div onClick={() => handleCategoryChange('non-vegetarian')} className={`category cursor-pointer hover:bg-violet-500 border-2 rounded-box ${selectedCategory === 'non-vegetarian' ? 'bg-violet-100 border-violet-300' : 'bg-transparent border-transparent'} flex flex-col items-center`}>
             <i className="fa-solid fa-bowl-food fa-2xl catIcon"></i>
             <p className="font-semibold text-gray-600 text-center">NORMAL MEALS</p>
           </div>
@@ -79,20 +83,22 @@ function Meals() {
 
       {/* ============================= cards ==============================*/}
       <div className="container mx-auto p-8">
-  {isLoading ? (
-    <Loading />
-  ) : error ? (
-    <Notfound />
-  ) : (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-      {data?.items.map((meal) => (
-        <div key={meal._id}>
-          <MealCard data={meal} className="flex-none" />
-        </div>
-      ))}
-    </div>
-  )}
-</div>
+        {isLoading ? (
+          <Loading />
+        ) : error ? (
+          <Notfound />
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            {data?.items
+              .filter((meal) => !selectedCategory || meal.category === selectedCategory) // Filter meals based on selected category
+              .map((meal) => (
+                <div key={meal._id}>
+                  <MealCard data={meal} className="flex-none" />
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
 
 
       {/* <MealCarousel/> */}
