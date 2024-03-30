@@ -1,0 +1,54 @@
+.fife{
+    color: rgb(66, 66, 66);
+    margin: auto;
+    margin-top: 80px;
+    width: 30% ;
+    padding: 20px;
+    height:  50vh;  
+    font-family: Realway, Georgia, serif;
+    text-align: center;
+    position: relative;
+    animation-name: example;
+    animation-duration: 8s;
+    /* animation-delay: 0.5s; */
+}
+@keyframes example {
+    0%   {right:200px; top:0px;}
+    25%  {right:0px; top:0px;}
+  }
+  .home{
+    position: relative;
+    left: 200px;
+    top: -40px;
+    color: rgba(255, 255, 255, 0.404);
+    }
+    .home:hover{
+        color: rgb(255, 255, 255);
+        }
+        .counter{
+            color: rgb(255, 255, 255);
+            margin-left: 1300px;
+            margin-top: -40px;
+         
+        }
+  .h1{
+    font-family: REM, sans-serif;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.986) !important;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.select{
+    width: 130%;
+    margin-left: -30px;
+}
+.btns{
+    margin-top: 30px;
+    display: flex;
+    justify-content:center;
+    gap: 250px;
+}
+
+.FormControl{
+    width: 53%;
+}

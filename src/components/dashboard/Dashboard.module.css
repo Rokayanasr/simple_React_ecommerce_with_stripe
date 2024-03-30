@@ -1,0 +1,26 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: small;
+    background-color: white;
+    /* column-gap: 65px; */
+}
+
+.side{
+    /* width: 100%; */
+}
+
+.conten{
+    /* width: 100%; */
+    /* margin: 200px; */
+    display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+}
+
+
+.dash{
+    display: flex;
+
+}

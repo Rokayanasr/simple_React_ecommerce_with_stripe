@@ -1,0 +1,30 @@
+.body {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #C850C0 16%,#735bf3 65%, #C1EAFA 90%);
+	background-size: 400% 400%;
+	animation: gradient 8s ease infinite;
+	height: 100vh;
+	margin-top: -60px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.centerStepper{
+    margin-top: 60px;
+	position: relative; 
+	top: 140px;
+}
+
+.ceter-Stepper .MuiStepper-root,
+.ceter-Stepper .MuiStepper-horizontal {
+  background-color:#735bf3;
+}

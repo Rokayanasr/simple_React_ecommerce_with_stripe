@@ -1,0 +1,42 @@
+.cont{
+color: rgb(66, 66, 66);
+margin: auto;
+margin-top: 80px;
+width: 40%;
+padding: 20px;
+height:  50vh;  
+text-align: center;
+display: flex;
+flex-direction: column;
+gap: 30px;
+position: relative;
+animation-name: example;
+animation-duration: 8s;
+}
+.home{
+position: relative;
+left: 200px;
+top: -40px;
+color: rgba(255, 255, 255, 0.404);
+}
+.home:hover{
+    color: rgb(255, 255, 255);
+    }
+.myh2{
+    font-family: REM, sans-serif;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.986);
+    font-weight: 500;
+}
+.btn{
+    width: 35%;
+    padding: 10px !important;
+   color: rgba(255, 255, 255, 0.986)!important; 
+    border-radius: 50px 50px !important;
+    border: rgba(255, 255, 255, 0.986) 1px solid !important;
+}
+
+@keyframes example {
+    0%   {right:200px; top:0px;}
+    25%  {right:0px; top:0px;}
+  }
